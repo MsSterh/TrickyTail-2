@@ -4,7 +4,7 @@ import {
   ThemeProvider,
 } from "@react-navigation/native";
 import { useFonts } from "expo-font";
-import { Stack } from "expo-router";
+import { Stack, Link } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
@@ -16,6 +16,9 @@ import { Colors } from "@/constants/Colors";
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
+export const unstable_settings = {
+  initialRouteName: "index",
+};
 export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
@@ -36,6 +39,16 @@ export default function RootLayout() {
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <Stack>
         <Stack.Screen
+          name="index"
+          options={{
+            title: "Лисий календарь",
+            contentStyle: {
+              backgroundColor: Colors.light.background,
+            },
+            headerRight: () => <Link href="/modal">Врр!!</Link>,
+          }}
+        />
+        <Stack.Screen
           name="modal"
           options={{
             headerShown: false,
@@ -44,9 +57,8 @@ export default function RootLayout() {
             },
           }}
         />
-        <Stack.Screen name="index" />
-        {/* <Stack.Screen name="(tabs)" options={{ headerShown: true }} />
-          <Stack.Screen name="+not-found" /> */}
+        {/* <Stack.Screen name="(tabs)" options={{ headerShown: true }} /> */}
+        <Stack.Screen name="+not-found" />
       </Stack>
       <StatusBar style="auto" />
     </ThemeProvider>

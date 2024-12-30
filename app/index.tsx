@@ -1,22 +1,33 @@
 import { Link } from "expo-router";
-import { StyleSheet, Text, View } from "react-native";
+import { useEffect } from "react";
+import { StyleSheet, ScrollView, Text, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Home() {
+  const navigation = useNavigation();
+
+  useEffect(() => {
+    setTimeout(() => {
+      navigation.navigate("modal");
+    }, 0);
+  }, []);
+
   return (
-    <View style={styles.container}>
-      <Text>Home screen</Text>
-      <Link href="/modal" style={styles.link}>
-        Open modal
-      </Link>
-    </View>
+    <ScrollView>
+      <View style={styles.container}>
+        <Text>Home screen</Text>
+        <Link href="/modal" style={styles.link}>
+          Open modal
+        </Link>
+      </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    padding: 18,
   },
   link: {
     paddingTop: 20,

@@ -1,10 +1,7 @@
 import { StyleSheet, ScrollView, Text, View } from "react-native";
 import { Image } from "expo-image";
 import Button from "@/components/Button";
-import {
-  createStaticNavigation,
-  useNavigation,
-} from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 
 const PlaceholderImage = require("@/assets/images/fox.png");
 
@@ -39,7 +36,7 @@ export default function Modal() {
         <Button
           label="Согласен! Давай играть!"
           onPress={() => {
-            navigation.popTo("index");
+            navigation.goBack();
           }}
         />
       </View>
