@@ -60,5 +60,6 @@ const styles = StyleSheet.create({
   },
   text: {
     paddingBottom: 18,
+    lineHeight: 22,
   },
 });
