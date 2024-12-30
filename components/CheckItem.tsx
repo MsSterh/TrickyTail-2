@@ -2,8 +2,13 @@ import Checkbox from "expo-checkbox";
 import { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-export default function CheckItem() {
+export default function CheckItem({ text, setCount }) {
   const [isChecked, setChecked] = useState(false);
+
+  const check = () => {
+    setChecked(!isChecked);
+    setCount((c: number) => (!isChecked ? c + 1 : c - 1));
+  };
 
   return (
     <View style={styles.container}>
@@ -11,27 +16,10 @@ export default function CheckItem() {
         <Checkbox
           style={styles.checkbox}
           value={isChecked}
-          onValueChange={setChecked}
+          onValueChange={check}
+          color={isChecked ? "#37A87B" : undefined}
         />
-        <Text style={styles.paragraph}>Normal checkbox</Text>
-      </View>
-      <View style={styles.section}>
-        <Checkbox
-          style={styles.checkbox}
-          value={isChecked}
-          onValueChange={setChecked}
-          color={isChecked ? "#4630EB" : undefined}
-        />
-        <Text style={styles.paragraph}>Custom colored checkbox</Text>
-      </View>
-      <View style={styles.section}>
-        <Checkbox
-          style={styles.checkbox}
-          disabled
-          value={isChecked}
-          onValueChange={setChecked}
-        />
-        <Text style={styles.paragraph}>Disabled checkbox</Text>
+        <Text style={styles.paragraph}>{text}</Text>
       </View>
     </View>
   );
@@ -39,18 +27,23 @@ export default function CheckItem() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    marginHorizontal: 16,
-    marginVertical: 32,
+    borderTopColor: "#DBD6EE",
+    borderTopWidth: 2,
+    marginHorizontal: -18,
+    // width: "100%",
   },
   section: {
+    padding: 18,
     flexDirection: "row",
-    alignItems: "center",
+    alignItems: "flex-start",
+    width: "90%",
   },
   paragraph: {
-    fontSize: 15,
+    paddingBottom: 18,
+    lineHeight: 22,
   },
   checkbox: {
-    margin: 8,
+    marginRight: 16,
+    marginTop: 2,
   },
 });
