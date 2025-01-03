@@ -6,12 +6,14 @@ import dayjs, { Dayjs } from "dayjs";
 import Calendar from "@/components/Calendar";
 import Day1 from "@/components/Day1";
 import Day2 from "@/components/Day2";
+import Day3 from "@/components/Day3";
 import DayNotFound from "@/components/DayNotFound";
 
 const ComponentList = {
   "0": DayNotFound,
   "01": Day1,
   "02": Day2,
+  "03": Day3,
 };
 
 export default function Home() {
