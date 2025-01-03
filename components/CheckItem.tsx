@@ -17,7 +17,7 @@ export default function CheckItem({ text, setCount }) {
           style={styles.checkbox}
           value={isChecked}
           onValueChange={check}
-          color={isChecked ? "#37A87B" : undefined}
+          color={isChecked ? "#867EA5" : undefined}
         />
         <Text style={styles.paragraph}>{text}</Text>
       </View>

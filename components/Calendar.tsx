@@ -12,8 +12,7 @@ const Calendar = ({ onSelectDate, selected }) => {
   const getDates = () => {
     const _dates = [];
     for (let i = 0; i < 31; i++) {
-      // const date = dayjs("2025-01-01").add(i, "days");
-      const date = dayjs("2024-12-29").add(i, "days");
+      const date = dayjs("2025-01-01").add(i, "days");
       _dates.push(date);
     }
     setDates(_dates);

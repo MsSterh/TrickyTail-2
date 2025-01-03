@@ -26,8 +26,6 @@ const styles = StyleSheet.create({
   },
   section: {
     padding: 18,
-    flexDirection: "row",
-    alignItems: "flex-start",
   },
   paragraph: {
     paddingBottom: 18,
