@@ -1,6 +1,6 @@
 import Checkbox from "expo-checkbox";
 import { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function CheckItem({ text, setCount }) {
   const [isChecked, setChecked] = useState(false);
@@ -12,7 +12,7 @@ export default function CheckItem({ text, setCount }) {
 
   return (
     <View style={styles.container}>
-      <View style={styles.section}>
+      <TouchableOpacity style={styles.section} onPress={check}>
         <Checkbox
           style={styles.checkbox}
           value={isChecked}
@@ -20,7 +20,7 @@ export default function CheckItem({ text, setCount }) {
           color={isChecked ? "#867EA5" : undefined}
         />
         <Text style={styles.paragraph}>{text}</Text>
-      </View>
+      </TouchableOpacity>
     </View>
   );
 }
