@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
-import { StyleSheet, Text, View, ScrollView } from "react-native";
+import { StyleSheet, View, ScrollView } from "react-native";
 import dayjs, { Dayjs } from "dayjs";
 import Date from "./Date";
 
-const Calendar = ({ onSelectDate, selected }) => {
+const Calendar = ({ onSelectDate, selected, isActive, setActive }) => {
   const [dates, setDates] = useState([]);
   const [scrollPosition, setScrollPosition] = useState(0);
-  const [currentMonth, setCurrentMonth] = useState();
 
   // get the dates from today to 10 days from now, format them as strings and store them in state
   const getDates = () => {
@@ -19,9 +18,10 @@ const Calendar = ({ onSelectDate, selected }) => {
   };
 
   useEffect(() => {
+    setActive(false);
     getDates();
     onSelectDate(dayjs().format("YYYY-MM-DD"));
-  }, []);
+  }, [isActive]);
 
   return (
     <>
