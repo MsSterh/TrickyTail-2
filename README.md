@@ -25,6 +25,26 @@ In the output, you'll find options to open the app in a
 
 You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
+## Run app
+
+iOS Dev:
+
+```bash
+npx expo run:ios
+```
+
+or
+
+```bash
+npx expo run:ios --no-build-cache
+```
+
+Create build on iPhone:
+
+```bash
+npx expo run:ios --device --configuration Release
+```
+
 ## Get a fresh project
 
 When you're ready, run:
