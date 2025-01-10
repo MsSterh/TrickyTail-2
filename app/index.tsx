@@ -75,6 +75,7 @@ const ComponentList = {
 export default function Home() {
   const [selectedDate, setSelectedDate] = useState(null);
   const navigation = useNavigation();
+  const scrollViewRef = useRef(null);
 
   const day: string = dayjs(selectedDate).format("DD");
 
@@ -103,6 +104,8 @@ export default function Home() {
     };
   }, []);
 
+  scrollViewRef.current?.scrollTo({ y: 0, animated: true });
+
   return (
     <>
       <Calendar
@@ -111,7 +114,7 @@ export default function Home() {
         isActive={isActive}
         setActive={setActive}
       />
-      <ScrollView>
+      <ScrollView ref={scrollViewRef}>
         <View style={styles.container}>
           <SpecificDay />
         </View>

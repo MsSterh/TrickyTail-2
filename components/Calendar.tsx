@@ -1,11 +1,13 @@
-import { useState, useEffect } from "react";
-import { StyleSheet, View, ScrollView } from "react-native";
+import { useState, useEffect, useRef } from "react";
+import { Dimensions, StyleSheet, View, ScrollView } from "react-native";
 import dayjs, { Dayjs } from "dayjs";
 import Date from "./Date";
 
 const Calendar = ({ onSelectDate, selected, isActive, setActive }) => {
+  const scrollRef = useRef(null);
   const [dates, setDates] = useState([]);
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [currentDay, setCurrentDay] = useState();
 
   // get the dates from today to 10 days from now, format them as strings and store them in state
   const getDates = () => {
@@ -23,6 +25,20 @@ const Calendar = ({ onSelectDate, selected, isActive, setActive }) => {
     onSelectDate(dayjs().format("YYYY-MM-DD"));
   }, [isActive]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      const windowWidth = Dimensions.get("window").width;
+      const dayPx = (dayjs().get("date") - 1) * 52;
+      const x = dayPx - windowWidth / 2 + 26;
+
+      scrollRef.current?.scrollTo({
+        x: x,
+        y: 0,
+        animated: true,
+      });
+    }, 0);
+  }, [scrollRef.current]);
+
   return (
     <>
       <View style={styles.dateSection}>
@@ -31,6 +47,7 @@ const Calendar = ({ onSelectDate, selected, isActive, setActive }) => {
             horizontal
             showsHorizontalScrollIndicator={false}
             style={styles.scrollView}
+            ref={scrollRef}
           >
             {dates.map((date, index) => (
               <Date
