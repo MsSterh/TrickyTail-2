@@ -1,17 +1,25 @@
 import { useState, useEffect, useRef } from "react";
 import { Dimensions, StyleSheet, View, ScrollView } from "react-native";
 import dayjs, { Dayjs } from "dayjs";
+import { useAtomValue } from "jotai";
+
+import { selectedMonth } from "@/state/atoms";
 import Date from "./Date";
 
 const Calendar = ({ onSelectDate, selected, isActive, setActive }) => {
   const scrollRef = useRef(null);
   const [dates, setDates] = useState([]);
+  const selectedDate = useAtomValue(selectedMonth);
 
   // get the dates from today to 10 days from now, format them as strings and store them in state
   const getDates = () => {
+    const [month, year] = selectedDate?.split("/") ?? [null, null];
+    const stringDate = "20" + year + "-" + month;
+    const days = dayjs(stringDate).daysInMonth();
+
     const _dates = [];
-    for (let i = 0; i < 31; i++) {
-      const date = dayjs("2025-01-01").add(i, "days");
+    for (let i = 0; i < days; i++) {
+      const date = dayjs(stringDate + "-01").add(i, "days");
       _dates.push(date);
     }
     setDates(_dates);
@@ -21,7 +29,7 @@ const Calendar = ({ onSelectDate, selected, isActive, setActive }) => {
     setActive(false);
     getDates();
     onSelectDate(dayjs().format("YYYY-MM-DD"));
-  }, [isActive]);
+  }, [isActive, selectedDate]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -35,7 +43,7 @@ const Calendar = ({ onSelectDate, selected, isActive, setActive }) => {
         animated: true,
       });
     }, 0);
-  }, [scrollRef.current]);
+  }, [scrollRef.current, selectedDate]);
 
   return (
     <>
