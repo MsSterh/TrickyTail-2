@@ -6,8 +6,6 @@ import Date from "./Date";
 const Calendar = ({ onSelectDate, selected, isActive, setActive }) => {
   const scrollRef = useRef(null);
   const [dates, setDates] = useState([]);
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const [currentDay, setCurrentDay] = useState();
 
   // get the dates from today to 10 days from now, format them as strings and store them in state
   const getDates = () => {
