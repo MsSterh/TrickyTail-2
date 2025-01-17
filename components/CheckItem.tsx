@@ -1,8 +1,10 @@
 import Checkbox from "expo-checkbox";
 import { useState } from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Button, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-export default function CheckItem({ text, setCount }) {
+import * as Linking from "expo-linking";
+
+export default function CheckItem({ text, link = '', setCount }) {
   const [isChecked, setChecked] = useState(false);
 
   const check = () => {
@@ -20,6 +22,7 @@ export default function CheckItem({ text, setCount }) {
           color={isChecked ? "#867EA5" : undefined}
         />
         <Text style={styles.paragraph}>{text}</Text>
+        {link && <Button title={link} onPress={() => Linking.openURL(link) }/>}
       </TouchableOpacity>
     </View>
   );
