@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 import CheckItem from "@/components/CheckItem";
 import SecretItem from "@/components/SecretItem";
 
-export default function Day6() {
+export default function Day4() {
   const [count, setCount] = useState(0);
 
   return (

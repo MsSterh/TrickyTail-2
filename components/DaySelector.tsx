@@ -1,6 +1,7 @@
-import { useAtomValue } from "jotai";
+import dayjs from "dayjs";
 
-import { selectedMonth } from "@/state/atoms";
+import { DateFormat } from '@/constants/Formats';
+import { getWeek, getWeekDay } from '@/utils/date'
 
 import Day250101 from "@/components/25/01/Day1";
 import Day250102 from "@/components/25/01/Day2";
@@ -34,13 +35,22 @@ import Day250129 from "@/components/25/01/Day29";
 import Day250130 from "@/components/25/01/Day30";
 import Day250131 from "@/components/25/01/Day31";
 
-import Day250201 from "@/components/25/02/Day1";
-import Day250202 from "@/components/25/02/Day2";
-import Day250203 from "@/components/25/02/Day3";
-import Day250204 from "@/components/25/02/Day4";
-import Day250205 from "@/components/25/02/Day5";
-import Day250206 from "@/components/25/02/Day6";
-import Day250207 from "@/components/25/02/Day7";
+import Day16 from "@/components/weeks/1/Day6";
+import Day17 from "@/components/weeks/1/Day7";
+
+import Day21 from "@/components/weeks/2/Day1";
+import Day22 from "@/components/weeks/2/Day2";
+import Day23 from "@/components/weeks/2/Day3";
+import Day24 from "@/components/weeks/2/Day4";
+import Day25 from "@/components/weeks/2/Day5";
+import Day26 from "@/components/weeks/2/Day6";
+import Day27 from "@/components/weeks/2/Day7";
+
+import Day31 from "@/components/weeks/3/Day1";
+import Day32 from "@/components/weeks/3/Day2";
+import Day33 from "@/components/weeks/3/Day3";
+import Day34 from "@/components/weeks/3/Day4";
+import Day35 from "@/components/weeks/3/Day5";
 
 import DayNotFound from "@/components/DayNotFound";
 
@@ -79,31 +89,54 @@ const ComponentList = {
       "30": Day250130,
       "31": Day250131,
     },
-    "02": {
-      "01": Day250201,
-      "02": Day250202,
-      "03": Day250203,
-      "04": Day250204,
-      "05": Day250205,
-      "06": Day250206,
-      "07": Day250207,
-    },
   },
+  "1": {
+    // "1": Day11,
+    // "2": Day12,
+    // "3": Day13,
+    // "4": Day14,
+    // "5": Day15,
+    "6": Day16,
+    "7": Day17,
+  },
+  "2": {
+    "1": Day21,
+    "2": Day22,
+    "3": Day23,
+    "4": Day24,
+    "5": Day25,
+    "6": Day26,
+    "7": Day27,
+  },
+  "3": {
+    "1": Day31,
+    "2": Day32,
+    "3": Day33,
+    "4": Day34,
+    "5": Day35,
+    // "6": Day36,
+    // "7": Day37,
+  },
+  "4": {},
+  "5": {},
+
   "0": DayNotFound,
 };
 
-export default function DaySelector({ day = "0" }) {
-  const selectedDate = useAtomValue(selectedMonth);
-  const [month, year] = selectedDate?.split("/") ?? [null, null];
+type DaySelectorProps = {
+  date: string
+}
 
-  const SpecificDay =
-    month &&
-    year &&
-    ComponentList.hasOwnProperty(year) &&
-    ComponentList[year].hasOwnProperty(month) &&
-    ComponentList[year][month].hasOwnProperty(day)
-      ? ComponentList[year][month][day]
-      : ComponentList["0"];
+const DaySelector = ({ date }: DaySelectorProps) => {
+  const isFirst = dayjs(date).format(DateFormat.short) === '01/25'
+  const week = getWeek(date) % 5 + 1 // 1-5
+  const day = getWeekDay(date) // 1-7
+
+  const SpecificDay = isFirst ?
+    ComponentList['25']['01'][dayjs(date).format('DD')] : 
+    ComponentList[week].hasOwnProperty(day) ? ComponentList[week][day] ComponentList['0'];
 
   return <SpecificDay />;
 }
+
+export default DaySelector;

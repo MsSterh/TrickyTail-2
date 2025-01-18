@@ -1,3 +1,6 @@
 import { atom } from "jotai";
+import dayjs from "dayjs";
 
-export const selectedMonth = atom<string | null>(null);
+import { DateFormat } from '@/constants/Formats';
+
+export const selectedDate = atom<string>(dayjs().format(DateFormat.full));

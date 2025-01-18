@@ -5,7 +5,7 @@ import * as Linking from "expo-linking";
 import CheckItem from "@/components/CheckItem";
 import SecretItem from "@/components/SecretItem";
 
-export default function Day5() {
+export default function Day3() {
   const [count, setCount] = useState(0);
 
   return (

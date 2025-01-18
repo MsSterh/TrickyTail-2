@@ -14,8 +14,9 @@ import dayjs, { Dayjs } from "dayjs";
 import { useAtom } from "jotai";
 import MonthPicker from "react-native-month-year-picker";
 
-import { selectedMonth } from "@/state/atoms";
+import { selectedDate } from "@/state/atoms";
 import { useColorScheme } from "@/hooks/useColorScheme";
+import { DateFormat } from '@/constants/Formats';
 import { Colors } from "@/constants/Colors";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -30,26 +31,18 @@ export default function RootLayout() {
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
   });
 
-  const [month, setMonth] = useAtom(selectedMonth);
+  const [currentDate, setCurrentDate] = useAtom(selectedDate);
   const [show, setShow] = useState(false);
 
-  const showPicker = useCallback((value) => setShow(value), []);
+  const showPicker = useCallback((value: boolean) => setShow(value), []);
 
   const onMonthChange = useCallback(
     (event, newDate) => {
-      const selectedDate = newDate || month;
-
-      setMonth(dayjs(selectedDate).format("MM/YY"));
+      setCurrentDate(dayjs(newDate || currentDate).format(DateFormat.full));
       showPicker(false);
     },
-    [month, showPicker]
+    [currentDate, showPicker]
   );
-
-  useEffect(() => {
-    if (!month) {
-      setMonth(dayjs().format("MM/YY"));
-    }
-  }, []);
 
   useEffect(() => {
     if (loaded) {
@@ -74,7 +67,7 @@ export default function RootLayout() {
             headerRight: () => <Link href="/modal">Врр!!</Link>,
             headerLeft: () => (
               <TouchableOpacity onPress={() => showPicker(true)}>
-                <Text>{month}</Text>
+                <Text>{dayjs(currentDate).format(DateFormat.short)}</Text>
               </TouchableOpacity>
             ),
           }}
@@ -96,7 +89,6 @@ export default function RootLayout() {
           onChange={onMonthChange}
           value={new Date()}
           minimumDate={new Date(2025, 1)}
-          maximumDate={new Date(2025, 2)}
           locale="ru"
         />
       )}

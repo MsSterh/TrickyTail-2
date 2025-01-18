@@ -1,4 +1,5 @@
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import {Dispatch, SetStateAction} from 'react'
+import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import dayjs, { Dayjs } from "dayjs";
 
 const getDay = (date: string) => {
@@ -22,7 +23,13 @@ const getDay = (date: string) => {
   }
 };
 
-const Date = ({ date, onSelectDate, selected }) => {
+type DateProps = {
+  date: string,
+  onSelectDate: Dispatch<SetStateAction<string | null>>,
+  selected: string | null
+}
+
+const Date = ({ date, onSelectDate, selected }: DateProps) => {
   /**
    * use moment to compare the date to today
    * if today, show 'Today'

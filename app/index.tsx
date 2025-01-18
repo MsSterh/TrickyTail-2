@@ -1,17 +1,17 @@
 import { useState, useEffect, useRef } from "react";
 import { AppState, StyleSheet, ScrollView, View } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 import dayjs, { Dayjs } from "dayjs";
 
 import Calendar from "@/components/Calendar";
 import DaySelector from "@/components/DaySelector";
 
+import { DateFormat } from '@/constants/Formats';
+
 export default function Home() {
-  const [selectedDate, setSelectedDate] = useState(null);
-  const navigation = useNavigation();
+  const [selectedDate, setSelectedDate] = useState<string | null>(null);
   const scrollViewRef = useRef(null);
 
-  const day: string = dayjs(selectedDate).format("DD");
+  const date: string = (selectedDate ? dayjs(selectedDate) : dayjs()).format(DateFormat.full);
 
   const appState = useRef(AppState.currentState);
   const [appStateVisible, setAppStateVisible] = useState(appState.current);
@@ -47,7 +47,7 @@ export default function Home() {
       />
       <ScrollView ref={scrollViewRef}>
         <View style={styles.container}>
-          <DaySelector day={day} />
+          <DaySelector date={date} />
         </View>
       </ScrollView>
     </>
