@@ -1,6 +1,8 @@
-import {Dispatch, SetStateAction} from 'react'
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
-import dayjs, { Dayjs } from "dayjs";
+import dayjs from "dayjs";
+import { useSetAtom } from "jotai";
+
+import { selectedDate } from "@/state/atoms";
 
 const getDay = (date: string) => {
   switch (date) {
@@ -24,37 +26,32 @@ const getDay = (date: string) => {
 };
 
 type DateProps = {
-  date: string,
-  onSelectDate: Dispatch<SetStateAction<string | null>>,
-  selected: string | null
-}
+  date: string;
+  selected: string | null;
+};
 
-const Date = ({ date, onSelectDate, selected }: DateProps) => {
-  /**
-   * use moment to compare the date to today
-   * if today, show 'Today'
-   * if not today, show day of the week e.g 'Mon', 'Tue', 'Wed'
-   */
+const Date = ({ date, selected }: DateProps) => {
+  const setCurrentDate = useSetAtom(selectedDate);
+
+  // get the dayweek text e.g пнд, втр, срд...
   const day = getDay(dayjs(date).format("d"));
   // get the day number e.g 1, 2, 3, 4, 5, 6, 7
   const dayNumber = dayjs(date).format("D");
 
-  // get the full date e.g 2021-01-01 - we'll use this to compare the date to the selected date
-  const fullDate = dayjs(date).format("YYYY-MM-DD");
   const isBefore = dayjs().isBefore(dayjs(date));
 
   return (
     <TouchableOpacity
-      onPress={() => !isBefore && onSelectDate(fullDate)}
+      onPress={() => !isBefore && setCurrentDate(date)}
       style={[
         styles.card,
-        selected === fullDate && { backgroundColor: "#867EA5" },
+        selected === date && !isBefore && { backgroundColor: "#867EA5" },
       ]}
     >
       <Text
         style={[
           styles.day,
-          selected === fullDate && { color: "#DBD6EE" },
+          selected === date && { color: "#DBD6EE" },
           isBefore && { color: "#BCBAC8" },
         ]}
       >
@@ -63,7 +60,7 @@ const Date = ({ date, onSelectDate, selected }: DateProps) => {
       <Text
         style={[
           styles.date,
-          selected === fullDate && {
+          selected === date && {
             color: "#fff",
           },
           isBefore && { color: "#94929E" },

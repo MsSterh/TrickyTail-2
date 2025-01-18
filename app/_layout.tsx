@@ -10,13 +10,13 @@ import { StatusBar } from "expo-status-bar";
 import { useEffect, useCallback, useState } from "react";
 import { TouchableOpacity, Text } from "react-native";
 import "react-native-reanimated";
-import dayjs, { Dayjs } from "dayjs";
+import dayjs from "dayjs";
 import { useAtom } from "jotai";
 import MonthPicker from "react-native-month-year-picker";
 
 import { selectedDate } from "@/state/atoms";
 import { useColorScheme } from "@/hooks/useColorScheme";
-import { DateFormat } from '@/constants/Formats';
+import { DateFormat } from "@/constants/Formats";
 import { Colors } from "@/constants/Colors";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -37,7 +37,7 @@ export default function RootLayout() {
   const showPicker = useCallback((value: boolean) => setShow(value), []);
 
   const onMonthChange = useCallback(
-    (event, newDate) => {
+    (event, newDate: Date) => {
       setCurrentDate(dayjs(newDate || currentDate).format(DateFormat.full));
       showPicker(false);
     },
@@ -81,7 +81,6 @@ export default function RootLayout() {
             },
           }}
         />
-        {/* <Stack.Screen name="(tabs)" options={{ headerShown: true }} /> */}
         <Stack.Screen name="+not-found" />
       </Stack>
       {show && (

@@ -1,17 +1,15 @@
 import { useState, useEffect, useRef } from "react";
 import { AppState, StyleSheet, ScrollView, View } from "react-native";
-import dayjs, { Dayjs } from "dayjs";
+import { useAtomValue } from "jotai";
 
 import Calendar from "@/components/Calendar";
 import DaySelector from "@/components/DaySelector";
 
-import { DateFormat } from '@/constants/Formats';
+import { selectedDate } from "@/state/atoms";
 
 export default function Home() {
-  const [selectedDate, setSelectedDate] = useState<string | null>(null);
-  const scrollViewRef = useRef(null);
-
-  const date: string = (selectedDate ? dayjs(selectedDate) : dayjs()).format(DateFormat.full);
+  const currentDate = useAtomValue(selectedDate);
+  const scrollViewRef = useRef<ScrollView>(null);
 
   const appState = useRef(AppState.currentState);
   const [appStateVisible, setAppStateVisible] = useState(appState.current);
@@ -35,22 +33,19 @@ export default function Home() {
     };
   }, []);
 
-  scrollViewRef.current?.scrollTo({ y: 0, animated: true });
+  useEffect(() => {
+    scrollViewRef.current?.scrollTo({ y: 0, animated: true });
+  }, [currentDate]);
 
   return (
-    <>
-      <Calendar
-        onSelectDate={setSelectedDate}
-        selected={selectedDate}
-        isActive={isActive}
-        setActive={setActive}
-      />
+    <View>
+      <Calendar isActive={isActive} setActive={setActive} />
       <ScrollView ref={scrollViewRef}>
         <View style={styles.container}>
-          <DaySelector date={date} />
+          <DaySelector date={currentDate} />
         </View>
       </ScrollView>
-    </>
+    </View>
   );
 }
 

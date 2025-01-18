@@ -1,8 +1,12 @@
-import Checkbox from "expo-checkbox";
-import { useState } from "react";
+import { ReactNode } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-export default function SecretItem({ isShown, children }) {
+type SecretItemProps = {
+  isShown: boolean;
+  children: ReactNode;
+};
+
+export default function SecretItem({ isShown, children }: SecretItemProps) {
   return (
     <View style={styles.container}>
       {isShown ? (

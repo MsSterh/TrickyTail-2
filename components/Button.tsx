@@ -2,12 +2,12 @@ import { StyleSheet, View, Pressable, Text } from "react-native";
 
 import { Colors } from "@/constants/Colors";
 
-type Props = {
+type ButtonProps = {
   label: string;
   onPress: () => void;
 };
 
-export default function Button({ label, onPress }: Props) {
+export default function Button({ label, onPress }: ButtonProps) {
   return (
     <View style={styles.buttonContainer}>
       <Pressable style={styles.button} onPress={onPress}>

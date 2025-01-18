@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 
-import { DateFormat } from '@/constants/Formats';
-import { getWeek, getWeekDay } from '@/utils/date'
+import { DateFormat } from "@/constants/Formats";
+import { getWeek, getWeekDay } from "@/utils/date";
 
 import Day250101 from "@/components/25/01/Day1";
 import Day250102 from "@/components/25/01/Day2";
@@ -124,19 +124,23 @@ const ComponentList = {
 };
 
 type DaySelectorProps = {
-  date: string
-}
+  date: string;
+};
 
 const DaySelector = ({ date }: DaySelectorProps) => {
-  const isFirst = dayjs(date).format(DateFormat.short) === '01/25'
-  const week = getWeek(date) % 5 + 1 // 1-5
-  const day = getWeekDay(date) // 1-7
+  const isFirst = dayjs(date).format(DateFormat.short) === "01/25";
+  const week: string = ((getWeek(date) % 5) + 1).toString(); // 1-5
+  const day: string = getWeekDay(date).toString(); // 1-7
 
-  const SpecificDay = isFirst ?
-    ComponentList['25']['01'][dayjs(date).format('DD')] : 
-    ComponentList[week].hasOwnProperty(day) ? ComponentList[week][day] ComponentList['0'];
+  const isBefore = dayjs().isBefore(dayjs(date));
+
+  const SpecificDay = isFirst
+    ? ComponentList["25"]["01"][dayjs(date).format("DD")]
+    : ComponentList[week].hasOwnProperty(day) && !isBefore
+    ? ComponentList[week][day]
+    : ComponentList["0"];
 
   return <SpecificDay />;
-}
+};
 
 export default DaySelector;
