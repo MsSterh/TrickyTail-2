@@ -6,7 +6,7 @@ import * as Linking from "expo-linking";
 
 type CheckItemProps = {
   text: string;
-  link: string;
+  link?: string;
   setCount: Dispatch<SetStateAction<number>>;
 };
 

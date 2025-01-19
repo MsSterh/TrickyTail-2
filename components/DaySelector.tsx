@@ -1,3 +1,4 @@
+import React from "react";
 import dayjs from "dayjs";
 
 import { DateFormat } from "@/constants/Formats";
@@ -51,10 +52,19 @@ import Day32 from "@/components/weeks/3/Day2";
 import Day33 from "@/components/weeks/3/Day3";
 import Day34 from "@/components/weeks/3/Day4";
 import Day35 from "@/components/weeks/3/Day5";
+import Day36 from "@/components/weeks/3/Day6";
 
 import DayNotFound from "@/components/DayNotFound";
 
-const ComponentList = {
+type FirstMonthComponentListType = {
+  [year: string]: {
+    [month: string]: {
+      [day: string]: () => React.JSX.Element;
+    };
+  };
+};
+
+const FirstMonthComponentList: FirstMonthComponentListType = {
   "25": {
     "01": {
       "01": Day250101,
@@ -90,6 +100,15 @@ const ComponentList = {
       "31": Day250131,
     },
   },
+};
+
+type WeeklyDayComponentListType = {
+  [week: string]: {
+    [day: string]: () => React.JSX.Element;
+  };
+};
+
+const WeeklyDayComponentList: WeeklyDayComponentListType = {
   "1": {
     // "1": Day11,
     // "2": Day12,
@@ -114,13 +133,11 @@ const ComponentList = {
     "3": Day33,
     "4": Day34,
     "5": Day35,
-    // "6": Day36,
+    "6": Day36,
     // "7": Day37,
   },
   "4": {},
   "5": {},
-
-  "0": DayNotFound,
 };
 
 type DaySelectorProps = {
@@ -135,10 +152,10 @@ const DaySelector = ({ date }: DaySelectorProps) => {
   const isBefore = dayjs().isBefore(dayjs(date));
 
   const SpecificDay = isFirst
-    ? ComponentList["25"]["01"][dayjs(date).format("DD")]
-    : ComponentList[week].hasOwnProperty(day) && !isBefore
-    ? ComponentList[week][day]
-    : ComponentList["0"];
+    ? FirstMonthComponentList["25"]["01"][dayjs(date).format("DD")]
+    : WeeklyDayComponentList[week].hasOwnProperty(day) && !isBefore
+    ? WeeklyDayComponentList[week][day]
+    : DayNotFound;
 
   return <SpecificDay />;
 };
