@@ -41,7 +41,7 @@ export default function RootLayout() {
       setCurrentDate(dayjs(newDate || currentDate).format(DateFormat.full));
       showPicker(false);
     },
-    [currentDate, showPicker]
+    [currentDate, setCurrentDate, showPicker]
   );
 
   useEffect(() => {

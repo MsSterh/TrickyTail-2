@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Button, StyleSheet, Text, View } from "react-native";
-import * as Linking from "expo-linking";
+import { StyleSheet, Text, View } from "react-native";
 
 import CheckItem from "@/components/CheckItem";
 import SecretItem from "@/components/SecretItem";

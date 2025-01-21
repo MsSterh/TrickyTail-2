@@ -12,6 +12,7 @@ export default function Home() {
   const scrollViewRef = useRef<ScrollView>(null);
 
   const appState = useRef(AppState.currentState);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [appStateVisible, setAppStateVisible] = useState(appState.current);
   const [isActive, setActive] = useState(true);
 

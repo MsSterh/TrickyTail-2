@@ -21,7 +21,7 @@ const getDay = (date: string) => {
     case "0":
       return "вск";
     default:
-      "вск";
+      return "вск";
   }
 };
 

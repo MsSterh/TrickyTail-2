@@ -37,6 +37,7 @@ const Calendar = ({ isActive, setActive }: CalendarProps) => {
     setActive(false);
     getDates();
     setCurrentDate(dayjs(currentDate).format(DateFormat.full));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isActive, stringDate]);
 
   useEffect(() => {
@@ -52,7 +53,7 @@ const Calendar = ({ isActive, setActive }: CalendarProps) => {
         animated: true,
       });
     }, 0);
-  }, [scrollRef.current, currentDate]);
+  }, [currentDate]);
 
   return (
     <View style={styles.dateSection}>
