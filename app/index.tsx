@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { Fragment, useState, useEffect, useRef } from "react";
 import { AppState, StyleSheet, ScrollView, View } from "react-native";
 import { useAtomValue } from "jotai";
 
@@ -38,14 +38,14 @@ export default function Home() {
   }, [currentDate]);
 
   return (
-    <View>
+    <Fragment>
       <Calendar isActive={isActive} setActive={setActive} />
       <ScrollView ref={scrollViewRef}>
         <View style={styles.container}>
           <DaySelector date={currentDate} />
         </View>
       </ScrollView>
-    </View>
+    </Fragment>
   );
 }
 
