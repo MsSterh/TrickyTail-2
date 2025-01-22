@@ -57,6 +57,10 @@ import Day37 from "@/components/weeks/3/Day7";
 
 import Day41 from "@/components/weeks/4/Day1";
 import Day42 from "@/components/weeks/4/Day2";
+import Day43 from "@/components/weeks/4/Day3";
+// import Day45 from "@/components/weeks/4/Day5";
+// import Day46 from "@/components/weeks/4/Day6";
+// import Day47 from "@/components/weeks/4/Day7";
 
 import DayNotFound from "@/components/DayNotFound";
 
@@ -143,6 +147,11 @@ const WeeklyDayComponentList: WeeklyDayComponentListType = {
   "4": {
     "1": Day41,
     "2": Day42,
+    "3": Day43,
+    // "4": Day44,
+    // "5": Day45,
+    // "6": Day46,
+    // "7": Day47,
   },
   "5": {},
 };
