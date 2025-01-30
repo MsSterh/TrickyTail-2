@@ -58,9 +58,15 @@ import Day37 from "@/components/weeks/3/Day7";
 import Day41 from "@/components/weeks/4/Day1";
 import Day42 from "@/components/weeks/4/Day2";
 import Day43 from "@/components/weeks/4/Day3";
-// import Day45 from "@/components/weeks/4/Day5";
-// import Day46 from "@/components/weeks/4/Day6";
-// import Day47 from "@/components/weeks/4/Day7";
+import Day44 from "@/components/weeks/4/Day4";
+import Day45 from "@/components/weeks/4/Day5";
+import Day46 from "@/components/weeks/4/Day6";
+import Day47 from "@/components/weeks/4/Day7";
+
+import Day51 from "@/components/weeks/5/Day1";
+import Day52 from "@/components/weeks/5/Day2";
+import Day53 from "@/components/weeks/5/Day3";
+import Day54 from "@/components/weeks/5/Day4";
 
 import DayNotFound from "@/components/DayNotFound";
 
@@ -148,12 +154,17 @@ const WeeklyDayComponentList: WeeklyDayComponentListType = {
     "1": Day41,
     "2": Day42,
     "3": Day43,
-    // "4": Day44,
-    // "5": Day45,
-    // "6": Day46,
-    // "7": Day47,
+    "4": Day44,
+    "5": Day45,
+    "6": Day46,
+    "7": Day47,
   },
-  "5": {},
+  "5": {
+    "1": Day51,
+    "2": Day52,
+    "3": Day53,
+    "4": Day54,
+  },
 };
 
 type DaySelectorProps = {
