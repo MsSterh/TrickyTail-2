@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 
 import CheckItem from "@/components/CheckItem";
 import SecretItem from "@/components/SecretItem";
