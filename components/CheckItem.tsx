@@ -31,8 +31,12 @@ export default function CheckItem({
           onValueChange={check}
           color={isChecked ? "#867EA5" : undefined}
         />
-        <Text style={styles.paragraph}>{text}</Text>
-        {link && <Button title={link} onPress={() => Linking.openURL(link)} />}
+        <View>
+          <Text style={styles.paragraph}>{text}</Text>
+          {link && (
+            <Button title={link} onPress={() => Linking.openURL(link)} />
+          )}
+        </View>
       </TouchableOpacity>
     </View>
   );

@@ -36,6 +36,11 @@ import Day250129 from "@/components/25/01/Day29";
 import Day250130 from "@/components/25/01/Day30";
 import Day250131 from "@/components/25/01/Day31";
 
+import Day11 from "@/components/weeks/1/Day1";
+import Day12 from "@/components/weeks/1/Day2";
+import Day13 from "@/components/weeks/1/Day3";
+import Day14 from "@/components/weeks/1/Day4";
+import Day15 from "@/components/weeks/1/Day5";
 import Day16 from "@/components/weeks/1/Day6";
 import Day17 from "@/components/weeks/1/Day7";
 
@@ -67,6 +72,9 @@ import Day51 from "@/components/weeks/5/Day1";
 import Day52 from "@/components/weeks/5/Day2";
 import Day53 from "@/components/weeks/5/Day3";
 import Day54 from "@/components/weeks/5/Day4";
+import Day55 from "@/components/weeks/5/Day5";
+import Day56 from "@/components/weeks/5/Day6";
+import Day57 from "@/components/weeks/5/Day7";
 
 import DayNotFound from "@/components/DayNotFound";
 
@@ -124,11 +132,11 @@ type WeeklyDayComponentListType = {
 
 const WeeklyDayComponentList: WeeklyDayComponentListType = {
   "1": {
-    // "1": Day11,
-    // "2": Day12,
-    // "3": Day13,
-    // "4": Day14,
-    // "5": Day15,
+    "1": Day11,
+    "2": Day12,
+    "3": Day13,
+    "4": Day14,
+    "5": Day15,
     "6": Day16,
     "7": Day17,
   },
@@ -164,6 +172,9 @@ const WeeklyDayComponentList: WeeklyDayComponentListType = {
     "2": Day52,
     "3": Day53,
     "4": Day54,
+    "5": Day55,
+    "6": Day56,
+    "7": Day57,
   },
 };
 
