@@ -1,5 +1,8 @@
 import { StyleSheet, Text, View } from "react-native";
 
+import StarEmptySvg from "./icons/StarEmptySvg";
+import StarFullSvg from "./icons/StarFullSvg";
+
 type CheckItemProps = {
   rate?: number;
   time?: string;
@@ -14,9 +17,11 @@ export default function DayDescription({
   return (
     <View style={styles.container}>
       <View style={styles.topLine}>
-        {[1, 2, 3, 4, 5].map((i) =>
-          rate <= i ? <Text>star</Text> : <Text>empty</Text>
-        )}
+        <View style={styles.rate}>
+          {[1, 2, 3, 4, 5].map((i) =>
+            rate <= i ? <StarFullSvg /> : <StarEmptySvg />
+          )}
+        </View>
         <Text style={styles.time}>{time}</Text>
       </View>
       <Text style={styles.description}>{text}</Text>
@@ -35,6 +40,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "flex-start",
     width: "90%",
+  },
+  rate: {
+    flexDirection: "row",
+    gap: 1,
   },
   time: {
     color: "#867EA5",
