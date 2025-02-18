@@ -1,11 +1,11 @@
-import Svg, { Path } from "react-native-svg";
+import Svg, { Path, SvgProps } from "react-native-svg";
 
-export default function StarFullSvg(props) {
+export default function StarFullSvg(props: SvgProps) {
   return (
-    <Svg height="19" viewBox="0 0 20 19" width="20" {...props}>
+    <Svg width={20} height={19} {...props}>
       <Path
-        d="m10 15.27 6.18 3.73-1.64-7.03 5.46-4.73-7.19-.61-2.81-6.63-2.81 6.63-7.19.61 5.46 4.73-1.64 7.03z"
         fill="#867ea5"
+        d="M10 15.27 16.18 19l-1.64-7.03L20 7.24l-7.19-.61L10 0 7.19 6.63 0 7.24l5.46 4.73L3.82 19z"
       />
     </Svg>
   );

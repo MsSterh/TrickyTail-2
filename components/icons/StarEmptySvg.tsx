@@ -1,11 +1,11 @@
-import Svg, { Path } from "react-native-svg";
+import Svg, { Path, SvgProps } from "react-native-svg";
 
-export default function StarEmptySvg(props) {
+export default function StarEmptySvg(props: SvgProps) {
   return (
-    <Svg height="19" viewBox="0 0 20 19" width="20" {...props}>
+    <Svg width={20} height={19} fill="none" {...props}>
       <Path
-        d="m10.2584 14.8419-.2584-.1559-.25837.1559-5.1655 3.1177 1.3708-5.876.06856-.2939-.2281-.1976-4.56431-3.95407 6.00919-.50982.30043-.02549.11766-.27761 2.34964-5.54381 2.3496 5.54381.1177.27761.3004.02549 6.0092.50982-4.5643 3.95407-.2281.1976.0686.2939 1.3708 5.876z"
         stroke="#bcbac8"
+        d="M10.258 14.842 10 14.686l-.258.156-5.166 3.118 1.37-5.876.07-.294-.229-.198-4.564-3.954 6.01-.51.3-.025.117-.278L10 1.281l2.35 5.544.117.278.3.025 6.01.51-4.564 3.954-.229.198.07.294 1.37 5.876z"
       />
     </Svg>
   );
