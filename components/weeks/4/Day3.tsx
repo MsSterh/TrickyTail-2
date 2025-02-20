@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
+import DayDescription from "@/components/DayDescription";
 import CheckItem from "@/components/CheckItem";
 import SecretItem from "@/components/SecretItem";
 
@@ -9,7 +10,11 @@ export default function Day3() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Попа (упражнения с резинкой).</Text>
+      <DayDescription
+        rate={3}
+        time="0:12"
+        text="Попа (упражнения с резинкой)."
+      />
       <Text style={styles.text}>
         Привет-привет)) Всё-то мы с тобой прокачали, а вот про попу-то, про
         попу-то забыли! Надо бороться с сидением и подкачать попные мышцы! Тебе
