@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
+import DayDescription from "@/components/DayDescription";
 import CheckItem from "@/components/CheckItem";
 import SecretItem from "@/components/SecretItem";
 
@@ -9,7 +10,7 @@ export default function Day5() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Ноги и руки с баклажкой.</Text>
+      <DayDescription rate={4} time="0:18" text="Ноги и руки с баклажкой." />
       <CheckItem
         setCount={setCount}
         text="Делай упражнение на 4 счета: 1 - присесть, 2 - в этом положении носки в стороны, пятки не двигаются, 3 - носки снова прямо, 4 - встать. Делай так 10 раз."

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
+import DayDescription from "@/components/DayDescription";
 import CheckItem from "@/components/CheckItem";
 import SecretItem from "@/components/SecretItem";
 
@@ -9,9 +10,7 @@ export default function Day1() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>
-        Бёрпи + пресс + спина.
-      </Text>
+      <DayDescription rate={4} time="0:15" text="Бёрпи + пресс + спина." />
       <CheckItem
         setCount={setCount}
         text="Сделай суставную гимнастику. Придумай себе по 1-2 упражнения на следующие суставы: кисти рук, локти, плечи, шея, талия, бедра, колени, стопы."
@@ -49,7 +48,7 @@ export default function Day1() {
         text="Вытянись в змею, посиди так секунд 10, затем вытянись руками вперед, попа на пятках, тоже посиди так секунд 10-15."
       />
       <SecretItem isShown={count >= 9}>
-        Супер!!! Так держать!
+        <Text style={styles.text}>Супер!!! Так держать!</Text>
       </SecretItem>
     </View>
   );

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
+import DayDescription from "@/components/DayDescription";
 import CheckItem from "@/components/CheckItem";
 import SecretItem from "@/components/SecretItem";
 
@@ -9,7 +10,7 @@ export default function Day4() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Растяжка боков и рук.</Text>
+      <DayDescription rate={2} time="0:16" text="Растяжка боков и рук." />
       <CheckItem
         setCount={setCount}
         text="Встань на колени спиной к стене, одну ногу выведи вперед под 90 градусов, а вторую положи колено на подушку и подними у стены носок, чтобы он стремился коснуться попы. Вытяни руки вверх. 30 раз с выдохом заводи руки еще дальше вверх и назад. Поменяй ногу и сделай ещё 30 выдохов с руками."
@@ -66,7 +67,7 @@ export default function Day4() {
         setCount={setCount}
         text="Соедини кисти рук в районе запястье, ладошки смотрят друг на друга. Проворачивай одновременно кистями внутрь и наружу, стараясь не отрывать контакта в запястье у кистей. Сделай по 10 раз."
       />
-      <SecretItem isShown={count >= 11}>
+      <SecretItem isShown={count >= 14}>
         <Text style={styles.text}>
           Вжух! Чувствуешь как хорошо? ^_^ Я пока отходил по своим делам, хайку
           тебе сочинил:
