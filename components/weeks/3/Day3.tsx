@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
+import DayDescription from "@/components/DayDescription";
 import CheckItem from "@/components/CheckItem";
 import SecretItem from "@/components/SecretItem";
 
@@ -9,9 +10,7 @@ export default function Day3() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>
-        Кардио + глаза
-      </Text>
+      <DayDescription rate={3} time="0:16" text="Кардио + глаза" />
       <CheckItem setCount={setCount} text="Берпи 20 раз." />
       <CheckItem
         setCount={setCount}
