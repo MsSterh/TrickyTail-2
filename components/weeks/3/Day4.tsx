@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
+import DayDescription from "@/components/DayDescription";
 import CheckItem from "@/components/CheckItem";
 import SecretItem from "@/components/SecretItem";
 
@@ -9,9 +10,7 @@ export default function Day4() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>
-        Стопы
-      </Text>
+      <DayDescription rate={1} time="0:15" text="Стопы" />
       <Text style={styles.text}>
         Ещё одна незаслуженно игнорируемая часть тела — стопы. Красивые стопы
         всегда выделяют танцора. Знаешь, в чём их красота? В силе, да. Но ещё в
@@ -66,7 +65,9 @@ export default function Day4() {
         text="А теперь растяжка: обопрись руками о стол или спинку дивана. Отойди от него одной вытянутой ногой (вторая согнута), и растягивай заднюю поверхность голени 15 секунд. Затем на другую ногу. Таз толкай вперед. Повтори ещё 2 раза."
       />
       <SecretItem isShown={count >= 11}>
-        <Text style={styles.text}>Супер! Теперь у тебя такие мяконькие стопочки =)</Text>
+        <Text style={styles.text}>
+          Супер! Теперь у тебя такие мяконькие стопочки =)
+        </Text>
       </SecretItem>
     </View>
   );
