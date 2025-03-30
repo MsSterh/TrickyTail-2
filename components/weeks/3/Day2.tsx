@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
+import DayDescription from "@/components/DayDescription";
 import CheckItem from "@/components/CheckItem";
 import SecretItem from "@/components/SecretItem";
 
@@ -9,9 +10,7 @@ export default function Day2() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>
-        Растяжка рук и кистей
-      </Text>
+      <DayDescription rate={1} time="0:13" text="Растяжка рук и кистей" />
       <Text style={styles.text}>
         Вдыхаем-выдыхаем! Сегодня поработаем над дыханием. Знаешь как важно
         дышать в такт во всех упражнениях? Даже в танцах мы растягиваем стороны
