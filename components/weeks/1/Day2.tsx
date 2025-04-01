@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
+import DayDescription from "@/components/DayDescription";
 import CheckItem from "@/components/CheckItem";
 import SecretItem from "@/components/SecretItem";
 
@@ -9,7 +10,7 @@ export default function Day2() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Стопы, вращения, глаза</Text>
+      <DayDescription rate={4} time="0:25" text="Стопы, вращения, глаза." />
       <CheckItem
         setCount={setCount}
         text="Возьми коврик. Расстели перед собой. Пройдись на носочках от одного края коврика до другого, возвращайся на пяточках. Повтори 4 раза."
@@ -24,7 +25,7 @@ export default function Day2() {
       />
       <CheckItem
         setCount={setCount}
-        text="Натяни стоны на себя, забержись на 3-4 секунды, затем от себя, задержись на 3-4 секунды. Повтори 10 раз. Колени выключены."
+        text="Натяни стопы на себя, задержись на 3-4 секунды, затем от себя, задержись на 3-4 секунды. Повтори 10 раз. Колени выключены."
       />
       <CheckItem
         setCount={setCount}
@@ -32,7 +33,7 @@ export default function Day2() {
       />
       <CheckItem
         setCount={setCount}
-        text="Стопы натянуты от себя. Натяни патцы на себя, задержись на 1 секунду, затем — от себя и подержи 1 секунду. Повтори 10 раз. Колени выключены."
+        text="Стопы натянуты от себя. Натяни пальцы на себя, задержись на 1 секунду, затем — от себя и подержи 1 секунду. Повтори 10 раз. Колени выключены."
       />
       <CheckItem
         setCount={setCount}
@@ -40,7 +41,7 @@ export default function Day2() {
       />
       <CheckItem
         setCount={setCount}
-        text="Сядь на пятки. Пятки и пальцы стоп вместе. Отклоняйся медленно назад, приподнимая колени, чтобы растянуть тыльную сторону стоп. Посиди так 30 секунд."
+        text="Возьми кубики для помощи. Сядь на пятки. Пятки и пальцы стоп вместе. Отклоняйся медленно назад, приподнимая колени, чтобы растянуть тыльную сторону стоп. Посиди так 30 секунд."
       />
       <CheckItem
         setCount={setCount}
