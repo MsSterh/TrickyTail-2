@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
+import DayDescription from "@/components/DayDescription";
 import CheckItem from "@/components/CheckItem";
 import SecretItem from "@/components/SecretItem";
 
@@ -9,7 +10,7 @@ export default function Day3() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Пресс</Text>
+      <DayDescription rate={3} time="0:13" text="Пресс." />
       <CheckItem
         setCount={setCount}
         text="Сделай 10 глубоких приседаний, при вставании выжимай попу и становись на носочки."
@@ -24,7 +25,7 @@ export default function Day3() {
       />
       <CheckItem
         setCount={setCount}
-        text="Ляг на коврик на спину. РУки вдоль тела, ноги подними вверх. Приподнимай попу вместе с ногами в темпе 12 раз."
+        text="Ляг на коврик на спину. Руки вдоль тела, ноги подними вверх. Приподнимай попу вместе с ногами в темпе 12 раз."
       />
       <CheckItem
         setCount={setCount}
@@ -48,7 +49,7 @@ export default function Day3() {
       />
       <CheckItem
         setCount={setCount}
-        text="Ляг на спину, вытянись, руки в стороны. Согни правое колено и поверни его влевую сторону, сам смотри вправо. Полежи так 30 секунд, затем смени ногу и еще полежи в скрутке 30 секунд."
+        text="Ляг на спину, вытянись, руки в стороны. Согни правое колено и поверни его в левую сторону, сам смотри вправо. Полежи так 30 секунд, затем смени ногу и еще полежи в скрутке 30 секунд."
       />
       <SecretItem isShown={count >= 10}>
         <Text style={styles.textLine}>Великолепный прес!</Text>

@@ -10,7 +10,11 @@ export default function Day2() {
 
   return (
     <View style={styles.container}>
-      <DayDescription rate={4} time="0:25" text="Стопы, вращения, глаза." />
+      <DayDescription
+        rate={4}
+        time="0:25"
+        text="Стопы, вращения-повороты, глаза."
+      />
       <CheckItem
         setCount={setCount}
         text="Возьми коврик. Расстели перед собой. Пройдись на носочках от одного края коврика до другого, возвращайся на пяточках. Повтори 4 раза."
