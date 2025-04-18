@@ -44,7 +44,7 @@ const Calendar = ({ isActive, setActive }: CalendarProps) => {
     // scroll to current date
     setTimeout(() => {
       const windowWidth = Dimensions.get("window").width;
-      const dayPx = (dayjs().get("date") - 1) * 52;
+      const dayPx = (dayjs(currentDate).get("date") - 1) * 52;
       const x = dayPx - windowWidth / 2 + 26;
 
       scrollRef.current?.scrollTo({

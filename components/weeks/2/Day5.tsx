@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
+import DayDescription from "@/components/DayDescription";
 import CheckItem from "@/components/CheckItem";
 import SecretItem from "@/components/SecretItem";
 
@@ -9,9 +10,12 @@ export default function Day5() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>
-        Пресс + спинку + потянемся неножко.
-      </Text>
+      <DayDescription
+        rate={4}
+        time="0:15"
+        text="Пресс + спинка + потянемся немножко."
+      />
+      <Text style={styles.text}></Text>
       <CheckItem
         setCount={setCount}
         text="Ляг на коврик. Ноги согни под 90 градусов (попа и колени). Руки подними вверх, отрывай плечи и тянись руками вверх в темпе. Сделай 20 раз."
@@ -46,11 +50,11 @@ export default function Day5() {
       />
       <CheckItem
         setCount={setCount}
-        text="Лодочка поплыла. То же самое положение, но руки и ноги качаются в воздухе, когда в воздухе."
+        text="Лодочка поплыла. То же самое положение, но руки и ноги качаются в воздухе, когда в воздухе. Сделай по 20 раз на каждую сторону."
       />
       <CheckItem
         setCount={setCount}
-        text="То же исходное положение. Руки вверху. Приподнимай корпус и заводи руки к себе, сгибая в локтях, активно своди лопатки. Опустись. Сделай 10 раз."
+        text="То же исходное положение. Руки вверху. Приподнимай корпус и заводи руки к себе, сгибая в локтях, активно своди лопатки. Ноги на полу. Опустись. Сделай 10 раз."
       />
       <CheckItem
         setCount={setCount}
@@ -58,7 +62,7 @@ export default function Day5() {
       />
       <CheckItem
         setCount={setCount}
-        text="Стань на колени, руками коснись пяток сзади, голову вытяни вверх и вперед, но не запрокидывай. Таз вперед. Постой так 5 секунд. Прогибайся в корпусе."
+        text="Стань на колени, руками коснись пяток сзади, голову вытяни вверх и вперед, но не запрокидывай. Таз вперед. Постой так 10 секунд. Прогибайся в корпусе."
       />
       <CheckItem
         setCount={setCount}
@@ -76,7 +80,11 @@ export default function Day5() {
         setCount={setCount}
         text="Сядь на ноги, корпус вперед, руки вытяни вперед и растягивай спину 10 секунд. Пальчиками стремись вперед пройтись ещё чуть-чуть."
       />
-      <SecretItem isShown={count >= 16}>
+      <CheckItem
+        setCount={setCount}
+        text="Скрутка. Сядь на попу, вытяни ровные ноги. Правую ногу согни в колене и закинь за бедро левой ноги. Левой рукой упирайся за правое колено и правой рукой обопрись назад. Спина ровная, голова продолжает скрутку. Посиди в этом положении 30 секунд. Затем повтори на другую сторону. Не забывай дышать и расслабляться."
+      />
+      <SecretItem isShown={count >= 17}>
         <Text style={styles.text}>
           Какой же ты классный! Всё сделал!)) *прыгает от радости*
         </Text>
