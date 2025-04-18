@@ -87,7 +87,7 @@ export default function RootLayout() {
         <MonthPicker
           onChange={onMonthChange}
           value={new Date()}
-          minimumDate={new Date(2025, 1)}
+          minimumDate={new Date(2024, 12)}
           locale="ru"
         />
       )}
