@@ -64,7 +64,7 @@ export default function RootLayout() {
             contentStyle: {
               backgroundColor: Colors.light.background,
             },
-            headerRight: () => <Link href="/modal">Врр!!</Link>,
+            headerRight: () => <Link href="/sets">Сеты</Link>,
             headerLeft: () => (
               <TouchableOpacity onPress={() => showPicker(true)}>
                 <Text>{dayjs(currentDate).format(DateFormat.short)}</Text>
@@ -73,9 +73,9 @@ export default function RootLayout() {
           }}
         />
         <Stack.Screen
-          name="modal"
+          name="sets"
           options={{
-            headerShown: false,
+            title: "Сеты",
             contentStyle: {
               backgroundColor: Colors.light.background,
             },
